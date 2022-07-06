@@ -7,7 +7,7 @@ class Persona{
 	method inteligencia(){return if(edad>20 and edad<40){12}else{8}}
 	method esDestacada(){return edad==25 or edad==35}
 	method darTributo(planeta){}
-	method valor(){return self.potencia()+self.inteligencia()}
+	method valor(){return self.potencia()+ self.inteligencia()}
 
 }
 
@@ -41,9 +41,11 @@ class Docente inherits Persona{
 	override method valor(){return super()+5}
 }
 
+
 class Soldados inherits Persona{
 	var property armas = #{}
 	
+	method darArma(unArma){armas.add(unArma)}
 	override method potencia(){return super() + armas.sum{a=>a.potencia(self)}}
 	override method darTributo(planeta){planeta.construirMurrallas(5)}	
 }

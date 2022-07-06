@@ -10,7 +10,7 @@ describe "Más sobre el planeta" {
 	var luisa = new Docente(edad=35, cursos=1)
 	
 	var p1 = new Planeta()
-
+	var p2 = new Planeta()
 	
 	method initialize(){
 		p1.agregarHabitantes(julieta)
@@ -19,6 +19,15 @@ describe "Más sobre el planeta" {
 		p1.agregarHabitantes(perla)
 		p1.agregarHabitantes(monica)
 		p1.agregarHabitantes(luisa)
+		
+		
+		p1.agregarHabitantes(julieta)
+		p1.agregarHabitantes(ana)
+		p1.agregarHabitantes(rosa)
+		p1.agregarHabitantes(perla)
+		p1.agregarHabitantes(monica)
+		p1.agregarHabitantes(luisa)
+
 	}
 	
 	test "construir murallas y fundar un museo" {
@@ -35,12 +44,26 @@ describe "Más sobre el planeta" {
 	test "necesita forzarse" {
 		assert.notThat(p1.necesitaForzarse()) //pot Aparente(312) >= pot real(184)*2=368
 	}	
+	
 	test "potencia real" {
 		assert.equals(184,p1.potenciaReal()) //20+28+52+44+20+20
 	}		
+	
 	test "recibir tributos" {
 		p1.recibirTributos()
-		assert.that(p1.museos()==2) //3 atletlas(6 murrallas), 2 docentes(2 museos), 1 persona(nada) 
+		assert.equals(2,p1.museos()) //3 atletlas(6 murrallas), 2 docentes(2 museos), 1 persona(nada) 
 		assert.equals(6,p1.longitudMurrallas())
 	}	
+	
+	test "habitantes valiosos" {
+		assert.equals(#{ana,rosa,perla,monica},p1.habitantesValiosos())//valor:28,40,60,56,45,39
+	}
+	
+	test "apaciguar a otro planeta" {
+		p1.apaciguarPlaneta(p2)
+		assert.equals(1,p2.museos())
+		assert.equals(6,p2.longitudMurrallas())//3 atetlas,1 docente
+	}
+		
+		
 }
