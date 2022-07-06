@@ -3,7 +3,7 @@ import personas.*
 class Planeta{
 	var property habitantes = #{}
 	var property museos = 0
-	var property longitudMurralas = 0
+	var property longitudMurrallas = 0
 	
 	
 	method agregarHabitantes(unHabitante){habitantes.add(unHabitante)}
@@ -13,14 +13,14 @@ class Planeta{
 	method alMenos10Inteligencia(){return habitantes.all{h=>h.inteligencia()>10}}
 	method potenciaReal(){return habitantes.sum{h=>h.potencia()}}
 	
-	method construirMurrallas(cantidad){longitudMurralas+=1}
+	method construirMurrallas(cantidad){longitudMurrallas+=cantidad}
 	method fundarMuseo(){museos+=1}
-	method potenciaAparente(){return self.potenciaHabitantes() * self.cantidadDeHabitantes()}///////
+	method potenciaAparente(){return self.maxPotencia() * self.cantidadDeHabitantes()}///////
 	method potenciaHabitantes(){return habitantes.map{h=>h.potencia()}}
 	method maxPotencia(){return self.potenciaHabitantes().max()}
 	method cantidadDeHabitantes(){return habitantes.size()}
 	method necesitaForzarse(){return self.potenciaAparente()>=2*self.potenciaReal()}
-	method recibirTributos(){habitantes.forEach{h=>h.darTributo()}}
+	method recibirTributos(){habitantes.forEach{h=>h.darTributo(self)}}
 	method habitantesValiosos(){return habitantes.filter{h=>h.valor()>=40}}
 	method apaciguarPlaneta(unPlaneta){self.habitantesValiosos().forEach{h=>h.darTributo(unPlaneta)}}
 	

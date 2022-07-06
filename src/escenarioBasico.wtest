@@ -51,7 +51,7 @@ describe "Test sobre el escenario básico personas" {
 		assert.notThat(luisa.esDestacada())
 	}
 	test "Tritón" {
-		assert.equals({ana;rosa;monica},triton.delegacionDiplomatica())
+		assert.equals(#{ana,rosa,monica},triton.delegacionDiplomatica())
 		assert.equals(2,triton.valorInicialDeDefensa())
 		assert.notThat(triton.esCulto())
 		assert.equals(184,triton.potenciaReal())

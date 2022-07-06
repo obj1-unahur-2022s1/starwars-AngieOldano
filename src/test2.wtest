@@ -1,0 +1,46 @@
+import personas.*
+import planeta.*
+
+describe "Más sobre el planeta" {
+	var julieta = new Persona(edad=42)
+	var ana = new Atleta(edad=25)
+	var rosa = new Atleta(edad=45,tecnicas=8)
+	var perla = new Atleta(edad=28,tecnicas=4,masaMuscular=6)
+	var monica = new Docente(edad=45,cursos=6)
+	var luisa = new Docente(edad=35, cursos=1)
+	
+	var p1 = new Planeta()
+
+	
+	method initialize(){
+		p1.agregarHabitantes(julieta)
+		p1.agregarHabitantes(ana)
+		p1.agregarHabitantes(rosa)
+		p1.agregarHabitantes(perla)
+		p1.agregarHabitantes(monica)
+		p1.agregarHabitantes(luisa)
+	}
+	
+	test "construir murallas y fundar un museo" {
+		p1.construirMurrallas(1)
+		p1.fundarMuseo()
+		assert.equals(1,p1.museos())
+		assert.equals(1,p1.longitudMurrallas())
+	}
+	
+	test "potencia aparente" {
+		assert.equals(312,p1.potenciaAparente()) //52*6
+	}	
+	
+	test "necesita forzarse" {
+		assert.notThat(p1.necesitaForzarse()) //pot Aparente(312) >= pot real(184)*2=368
+	}	
+	test "potencia real" {
+		assert.equals(184,p1.potenciaReal()) //20+28+52+44+20+20
+	}		
+	test "recibir tributos" {
+		p1.recibirTributos()
+		assert.that(p1.museos()==2) //3 atletlas(6 murrallas), 2 docentes(2 museos), 1 persona(nada) 
+		assert.equals(6,p1.longitudMurrallas())
+	}	
+}
