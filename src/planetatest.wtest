@@ -1,3 +1,9 @@
+/*
+ * Bien!. Las instancias de personas y de planetas podrían definirse como constantes.
+ * Te quedó 2 veces, en el initialize(), el agregado de los habitantes. Borro lo que está
+ * duplicado. 
+ */
+
 import personas.*
 import planeta.*
 
@@ -20,13 +26,6 @@ describe "Más sobre el planeta" {
 		p1.agregarHabitantes(monica)
 		p1.agregarHabitantes(luisa)
 		
-		
-		p1.agregarHabitantes(julieta)
-		p1.agregarHabitantes(ana)
-		p1.agregarHabitantes(rosa)
-		p1.agregarHabitantes(perla)
-		p1.agregarHabitantes(monica)
-		p1.agregarHabitantes(luisa)
 
 	}
 	

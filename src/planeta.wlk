@@ -1,3 +1,9 @@
+/*
+ * Planeta:
+ * El método auxiliar que retorna el booleano alMenos10Inteligencia() debería considerar también
+ * los que tienen 10 de inteligencia. Un detalle, lo corregí en el código.
+ */
+
 import personas.*
 
 class Planeta{
@@ -10,7 +16,7 @@ class Planeta{
 	method delegacionDiplomatica(){return habitantes.filter{h=>h.esDestacada()}}
 	method valorInicialDeDefensa(){return habitantes.count{h=>h.potencia()>=30}}
 	method esCulto(){return museos>2 and self.alMenos10Inteligencia()}
-	method alMenos10Inteligencia(){return habitantes.all{h=>h.inteligencia()>10}}
+	method alMenos10Inteligencia(){return habitantes.all{h=>h.inteligencia()>=10}}
 	method potenciaReal(){return habitantes.sum{h=>h.potencia()}}
 	
 	method construirMurrallas(cantidad){longitudMurrallas+=cantidad}
